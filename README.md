@@ -1,2 +1,2 @@
 # Organic-Ecommerce
-This is recipe ecommerece.
+This is ecommerece website.
