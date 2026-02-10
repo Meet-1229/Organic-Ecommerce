@@ -1,0 +1,106 @@
+<div class="parent">
+    <div class="preloader-wrapper" *ngIf="isLoading">
+        <div class="preloader">
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart">
+        <div class="offcanvas-header justify-content-center">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="order-md-last">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-primary">Your cart</span>
+                    <span class="badge bg-primary rounded-pill">3</span>
+                </h4>
+                <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
+        <div class="offcanvas-header justify-content-between">
+            <h4 class="fw-normal text-uppercase fs-6">Menu</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end menu-list list-unstyled d-flex gap-md-3 mb-0">
+                <li class="nav-item border-dashed active" *ngFor="let cate of categoryList">
+                    <a class="nav-link d-flex align-items-center gap-3 text-dark p-2">
+                        <p (click)="getCategoryProfuct(cate.categoryId)">{{cate.categoryName}}</p>
+                    </a>
+            </ul>
+        </div>
+    </div>
+
+    <header>
+        <div class="container-fluid">
+            <div class="row py-3 border-bottom">
+
+                <div
+                    class="col-sm-4 col-lg-2 text-center text-sm-start d-flex gap-3 justify-content-center justify-content-md-start">
+                    <div class="d-flex align-items-center my-3 my-sm-0">
+                        <a routerLink="">
+                            <img src="../../../../assets/landing-img/logo.svg" alt="logo" class="img-fluid">
+                        </a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <i class="fa-solid fa-bars fa-2x"></i>
+                    </button>
+                </div>
+
+                <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-4">
+                    <div class="p-2 rounded-4 d-flex align-items-center gap-2">
+                        <ul
+                        class="navbar-nav list-unstyled d-flex flex-row gap-3 gap-lg-5 justify-content-center flex-wrap align-items-center mb-0 fw-bold text-uppercase text-dark">
+                        <li class="nav-item active">
+                            <a routerLink="" routerLinkActive="active" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle pe-3" role="button" id="pages" data-bs-toggle="dropdown"
+                                aria-expanded="false">Pages</a>
+                            <ul class="dropdown-menu border-0 p-3 rounded-0 shadow" aria-labelledby="pages">
+                                <li><a (click)="onAbout()" class="dropdown-item">About Us </a></li>
+                                <li><a routerLink="/allproduct" class="dropdown-item">Shop </a></li>
+                                <li><a routerLink="/cart" class="dropdown-item">Cart </a></li>
+                                <li><a (click)="onContact()" class="dropdown-item" style="cursor: pointer;" >Contact </a></li>
+                                <li><a (click)="onThank()" class="dropdown-item" style="cursor: pointer;" >Thank You </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4">            
+                </div>
+
+                <div
+                    class="col-sm-8 col-lg-2 d-flex gap-5 align-items-center justify-content-center justify-content-sm-end">
+                    <ul class="d-flex justify-content-end list-unstyled m-0">
+                        <li>
+                            <a [routerLink]="'/login'" class="p-2 mx-1" title="Admin">
+                                <i class="fa-solid fa-user fa-lg"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/wishlist" class="p-2 mx-1" title="wishlist">
+                                <i class="fa-solid fa-bookmark fa-lg"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/cart" class="p-2 mx-1" title="cart">
+                                <i class="fa-solid fa-bag-shopping fa-lg"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <router-outlet></router-outlet>
+
+</div>

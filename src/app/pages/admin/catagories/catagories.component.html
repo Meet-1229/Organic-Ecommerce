@@ -1,0 +1,18 @@
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>category Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cate of categoryList ; let index = index" >
+                <td>{{index + 1}}</td>
+                <td>{{cate.categoryName}}</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,50 @@
+<section class="pb-5">
+      <div class="container-lg">
+        
+        <div class="row">
+          <div class="col-md-12">
+            <div class="category-carousel-item swiper">
+            <div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5">
+                  
+              <div class="col-3" *ngFor="let pro of products ; let i = index">
+                <div class="product-item">
+                  <figure>
+                    <a href="index.html" title="Product Title">
+                      <img [src]="isValidImage(pro.productImageUrl) ? pro.productImageUrl : '../../../../assets/e-commerce.jpg'" alt="Product Thumbnail" class="tab-image">
+                    </a>
+                  </figure>
+                  <div class="d-flex flex-column text-center">
+                    <h3 class="fs-6 fw-normal">{{pro.productName}}</h3>
+                    <div>
+                      <span class="rating">
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star-half-stroke" style="color: #FFD43B;"></i>
+                      </span>
+                      <span>({{randomNumbers[i]}})</span>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center gap-2">
+                      <del>${{pro.productPrice + 20}}</del>
+                      <span class="text-dark fw-semibold">${{pro.productPrice}}</span>
+                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
+                    </div>
+                    <div class="button-area p-3 pt-0">
+                      <div class="row g-1 mt-2">
+                        <div class="col-3"><input #qtyInput type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1"></div>
+                        <div class="col-7"><a routerLink="/cart" (click)="onAddToCart(pro ,qtyInput.value)" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a></div>
+                        <div class="col-2"><a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6"><i class="fa-solid fa-heart" style="color: #ff0000;"></i></a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- / product-grid -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
